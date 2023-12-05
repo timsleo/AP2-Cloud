@@ -1,0 +1,17 @@
+<div class="receita-container" *ngIf="receitas && receitas.length > 0">
+  <div class="post" *ngFor="let item of receitas">
+    <header>
+      <div class="receita-header-image"></div>
+      <p>Receita</p>
+    </header>
+    <img [src]="item.urlImage" width="200px" height="200px"  alt="" />
+    <span>
+      <p>
+        {{item.preparo}}
+      </p>
+    </span>
+    <a href>
+      <button class="container_card" (click)="redirectToDetail(item.id)">Ver Postagem</button>
+    </a>
+  </div>
+</div>

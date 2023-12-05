@@ -23,7 +23,7 @@ describe('AppComponent', () => {
   it(`should have as title 'nuvem-angular'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('nuvem-angular');
+    expect(app['title']).toEqual('nuvem-angular');
   });
 
   it('should render title', () => {

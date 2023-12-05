@@ -1,0 +1,28 @@
+<div class="container_body">
+  <div class="container_card">
+      <a class="link_home" routerLink="/home">Home</a>
+
+      <div class="card">
+        <p class="title">{{receita?.title}}</p>
+        <p class="preparo_post">{{receita?.preparo}}</p>
+        <p class="autor_post">Autor: {{receita?.author}}</p>
+        <p class="dtPublicacao_post">Data de Publicação: {{receita?.dtPublicacao?.toString()?.split("T")?.at(0)}}</p>
+    </div>
+      </div>
+      <h1>Comentários da Postagem</h1>
+      <button color = "primary" (click)="abrirCriarNovoComentario()"></button>
+      <div *ngIf="showCriarComentario == true">
+        <app-comment [idPost]="receita?.id" (newCommentEvent)="atualizarComentarios()"></app-comment>
+      </div>
+  </div>
+  <mat-card *ngFor="let item of comment" style="margin-top: 30px;">
+    <mat-card-header>
+      <mat-card-title>{{item.author}}</mat-card-title>
+      <mat-card-subtitle>{{item.dtComment| date: "dd/MM/yyyy"}}</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content style="margin: 25px 0 25px 0;">
+      <p>
+        {{item?.text}}
+      </p>
+    </mat-card-content>
+  </mat-card>
